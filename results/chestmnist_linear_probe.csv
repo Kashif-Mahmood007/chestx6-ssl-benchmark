@@ -1,0 +1,6 @@
+Model,Method,AUC-ROC,F1 (Binary),Accuracy,Sensitivity,Specificity
+ResNet50 (ImageNet),Linear Probe,0.7001,0.6604,0.6186,0.7921,0.4658
+EfficientNet-B0,Linear Probe,0.7049,0.6624,0.62,0.7962,0.4649
+MobileViT-XS,Linear Probe,0.6828,0.6454,0.6152,0.7478,0.4984
+SimCLR + ResNet50,Linear Probe,0.7084,0.6651,0.6419,0.7594,0.5384
+MAE + ViT-S/16,Linear Probe,0.665,0.6489,0.5447,0.8985,0.2331

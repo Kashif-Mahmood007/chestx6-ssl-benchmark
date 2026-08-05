@@ -1,0 +1,46 @@
+[
+  {
+    "method": "simclr_resnet50",
+    "subset": "10pct",
+    "ssl_f1_mean": 0.8431957122682011,
+    "ssl_f1_std": 0.0046300399579669175,
+    "supervised_100pct_f1": 0.9496857073764211,
+    "efficiency_ratio_pct": 88.78681712475101,
+    "labels_used_pct": 10,
+    "labels_saved_pct": 90,
+    "abstract_sentence": "SIMCLR_RESNET50 with 10% labels achieves 88.8% of full-supervision performance, using 90% fewer labels."
+  },
+  {
+    "method": "simclr_resnet50",
+    "subset": "20pct",
+    "ssl_f1_mean": 0.8668454481723766,
+    "ssl_f1_std": 0.004504656887524488,
+    "supervised_100pct_f1": 0.9496857073764211,
+    "efficiency_ratio_pct": 91.27708687615221,
+    "labels_used_pct": 20,
+    "labels_saved_pct": 80,
+    "abstract_sentence": "SIMCLR_RESNET50 with 20% labels achieves 91.3% of full-supervision performance, using 80% fewer labels."
+  },
+  {
+    "method": "mae_vits16",
+    "subset": "10pct",
+    "ssl_f1_mean": 0.6067884981018619,
+    "ssl_f1_std": 0.043643566973605975,
+    "supervised_100pct_f1": 0.9496857073764211,
+    "efficiency_ratio_pct": 63.89361168529757,
+    "labels_used_pct": 10,
+    "labels_saved_pct": 90,
+    "abstract_sentence": "MAE_VITS16 with 10% labels achieves 63.9% of full-supervision performance, using 90% fewer labels."
+  },
+  {
+    "method": "mae_vits16",
+    "subset": "20pct",
+    "ssl_f1_mean": 0.6756876007227364,
+    "ssl_f1_std": 0.02207730093259592,
+    "supervised_100pct_f1": 0.9496857073764211,
+    "efficiency_ratio_pct": 71.1485489856823,
+    "labels_used_pct": 20,
+    "labels_saved_pct": 80,
+    "abstract_sentence": "MAE_VITS16 with 20% labels achieves 71.1% of full-supervision performance, using 80% fewer labels."
+  }
+]

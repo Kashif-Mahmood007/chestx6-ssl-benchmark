@@ -1,0 +1,8 @@
+{
+  "model_name": "simclr_resnet50",
+  "subset": "5pct",
+  "n_train_images": 3923,
+  "test_auc": 0.6825202524044792,
+  "test_sensitivity": 0.5907663017605037,
+  "best_val_f1": 0.636548781364271
+}

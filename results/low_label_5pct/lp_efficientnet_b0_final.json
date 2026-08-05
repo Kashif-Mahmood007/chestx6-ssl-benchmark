@@ -1,0 +1,8 @@
+{
+  "model_name": "efficientnet_b0",
+  "subset": "5pct",
+  "n_train_images": 3923,
+  "test_auc": 0.6741166178412694,
+  "test_sensitivity": 0.6256068538785096,
+  "best_val_f1": 0.6361924555065119
+}

@@ -1,0 +1,8 @@
+{
+  "model_name": "mobilevit_xs",
+  "subset": "5pct",
+  "n_train_images": 3923,
+  "test_auc": 0.6502154646106051,
+  "test_sensitivity": 0.5164207520223546,
+  "best_val_f1": 0.6141128171314759
+}

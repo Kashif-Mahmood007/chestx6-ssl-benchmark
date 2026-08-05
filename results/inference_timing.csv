@@ -1,0 +1,7 @@
+Model,model_key,single_image_ms,mc_dropout_20pass_ms
+ResNet50 (ImageNet),resnet50_pretrained,5.81,127.33
+ResNet50 (Scratch),resnet50_scratch,5.78,124.49
+EfficientNet-B0,efficientnet_b0,7.91,174.26
+MobileViT-XS,mobilevit_xs,11.65,181.54
+simclr_resnet50,simclr_resnet50,5.85,127.09
+mae_vits16,mae_vits16,5.68,115.32

@@ -1,0 +1,44 @@
+{
+  "resnet50_pretrained": {
+    "label": "ResNet50 (ImageNet)",
+    "T_optimal": 1.5013,
+    "ECE_before": 0.027,
+    "ECE_after": 0.0165,
+    "ECE_reduction_%": 38.7
+  },
+  "resnet50_scratch": {
+    "label": "ResNet50 (Scratch)",
+    "T_optimal": 1.3951,
+    "ECE_before": 0.024,
+    "ECE_after": 0.0117,
+    "ECE_reduction_%": 51.0
+  },
+  "efficientnet_b0": {
+    "label": "EfficientNet-B0",
+    "T_optimal": 1.6999,
+    "ECE_before": 0.0259,
+    "ECE_after": 0.0157,
+    "ECE_reduction_%": 39.3
+  },
+  "mobilevit_xs": {
+    "label": "MobileViT-XS",
+    "T_optimal": 1.5356,
+    "ECE_before": 0.0312,
+    "ECE_after": 0.0118,
+    "ECE_reduction_%": 62.0
+  },
+  "simclr_resnet50": {
+    "label": "SimCLR + ResNet50",
+    "T_optimal": 1.7709,
+    "ECE_before": 0.028,
+    "ECE_after": 0.0205,
+    "ECE_reduction_%": 26.7
+  },
+  "mae_vits16": {
+    "label": "MAE + ViT-S/16",
+    "T_optimal": 1.2901,
+    "ECE_before": 0.0267,
+    "ECE_after": 0.0199,
+    "ECE_reduction_%": 25.4
+  }
+}

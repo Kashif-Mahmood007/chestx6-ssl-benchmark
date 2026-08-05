@@ -1,0 +1,8 @@
+{
+  "model_name": "resnet50_pretrained",
+  "subset": "5pct",
+  "n_train_images": 3923,
+  "test_auc": 0.6798188384631125,
+  "test_sensitivity": 0.5831508805325243,
+  "best_val_f1": 0.6352889093603753
+}

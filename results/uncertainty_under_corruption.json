@@ -1,0 +1,24 @@
+{
+  "efficientnet_b0": {
+    "clean": 0.000553131103515625,
+    "gaussian_noise_low": 0.00537872314453125,
+    "gaussian_noise_medium": 0.0040435791015625,
+    "brightness_up": 0.0013666152954101562,
+    "brightness_down": 0.001499176025390625,
+    "gaussian_blur_mild": 0.0030059814453125,
+    "gaussian_blur_strong": 0.00479888916015625,
+    "contrast_reduction": 0.0006461143493652344,
+    "jpeg_artifacts": 0.006549835205078125
+  },
+  "simclr_resnet50": {
+    "clean": 7.456541061401367e-05,
+    "gaussian_noise_low": 7.253885269165039e-05,
+    "gaussian_noise_medium": 0.00010776519775390625,
+    "brightness_up": 7.987022399902344e-05,
+    "brightness_down": 7.671117782592773e-05,
+    "gaussian_blur_mild": 0.0002906322479248047,
+    "gaussian_blur_strong": 0.0005440711975097656,
+    "contrast_reduction": 7.933378219604492e-05,
+    "jpeg_artifacts": 9.548664093017578e-05
+  }
+}

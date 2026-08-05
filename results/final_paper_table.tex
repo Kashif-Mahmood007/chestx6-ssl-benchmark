@@ -1,0 +1,24 @@
+\begin{table}[ht]
+\centering
+\caption{Performance comparison of supervised baselines and SSL methods
+on the ChestX6 dataset (6-class chest X-ray classification).
+Macro F1 reported as mean$\pm$std across 3 random seeds.
+ECE: Expected Calibration Error (lower is better).
+Avg Drop\%: mean F1 drop across 8 test-time corruptions.}
+\label{tab:main_results}
+\begin{tabular}{lcccccc}
+\toprule
+Model & Params & F1@10\% & F1@20\% & F1@100\% & ECE & Avg Drop\% \\
+\midrule
+\multicolumn{7}{l}{\textit{Supervised Baselines}} \\
+ResNet50 (Scratch) & 25.6M & 0.767 $\pm$ 0.006 & 0.771 $\pm$ 0.065 & 0.898 $\pm$ 0.003 & 0.0240 & 3.13\% \\
+ResNet50 (ImageNet) & 25.6M & 0.848 $\pm$ 0.009 & 0.878 $\pm$ 0.010 & 0.950 $\pm$ 0.012 & 0.0270 & 19.17\% \\
+EfficientNet-B0 & 5.3M & 0.830 $\pm$ 0.003 & 0.872 $\pm$ 0.005 & 0.948 $\pm$ 0.005 & 0.0259 & 38.85\% \\
+MobileViT-XS & 5.6M & 0.835 $\pm$ 0.004 & 0.860 $\pm$ 0.008 & 0.941 $\pm$ 0.004 & 0.0312 & 23.87\% \\
+\midrule
+\multicolumn{7}{l}{\textit{SSL Pre-trained Models}} \\
+SimCLR + ResNet50 & 25.6M & 0.843 $\pm$ 0.005 & 0.867 $\pm$ 0.005 & 0.952 $\pm$ 0.002 & 0.0280 & 12.90\% \\
+MAE + ViT-S/16 & 22.1M & 0.607 $\pm$ 0.044 & 0.676 $\pm$ 0.022 & 0.833 $\pm$ 0.015 & 0.0268 & 2.28\% \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,7 @@
+Model,model_key,ChestX6_binary_AUC,CI_lo,CI_hi
+ResNet50 (ImageNet),resnet50_pretrained,0.9983,0.9975,0.9991
+resnet50_scratch,resnet50_scratch,0.9979,0.9966,0.9988
+MobileViT-XS,mobilevit_xs,0.9991,0.9987,0.9995
+SimCLR + ResNet50,simclr_resnet50,0.9985,0.9964,0.9997
+MAE + ViT-S/16,mae_vits16,0.9903,0.987,0.9931
+EfficientNet-B0,efficientnet_b0,0.9993,0.9989,0.9996

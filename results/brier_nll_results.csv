@@ -1,0 +1,7 @@
+Model,model_key,Brier,Brier_CI_lo,Brier_CI_hi,NLL,NLL_CI_lo,NLL_CI_hi
+ResNet50 (ImageNet),resnet50_pretrained,0.1082,0.0965,0.1203,0.2212,0.1951,0.2511
+ResNet50 (Scratch),resnet50_scratch,0.1528,0.1404,0.1655,0.2715,0.2468,0.2971
+EfficientNet-B0,efficientnet_b0,0.0766,0.0655,0.0872,0.1988,0.1605,0.2393
+MobileViT-XS,mobilevit_xs,0.0941,0.0825,0.1063,0.1966,0.1695,0.2257
+SimCLR + ResNet50,simclr_resnet50,0.0803,0.0693,0.0926,0.2643,0.2137,0.323
+MAE + ViT-S/16,mae_vits16,0.2589,0.2451,0.2734,0.4494,0.4233,0.4756

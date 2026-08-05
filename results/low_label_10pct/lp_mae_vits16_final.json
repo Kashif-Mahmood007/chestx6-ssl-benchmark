@@ -1,0 +1,8 @@
+{
+  "model_name": "mae_vits16",
+  "subset": "10pct",
+  "n_train_images": 7846,
+  "test_auc": 0.6645176189614284,
+  "test_sensitivity": 0.5920990004754001,
+  "best_val_f1": 0.622279257785934
+}

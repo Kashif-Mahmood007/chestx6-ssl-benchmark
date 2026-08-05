@@ -1,0 +1,37 @@
+Model,Class,Sensitivity,Sens_CI_lo,Sens_CI_hi,Specificity,Spec_CI_lo,Spec_CI_hi
+ResNet50 (ImageNet),covid-19,0.9583,0.9404,0.9728,0.9923,0.9889,0.9953
+ResNet50 (ImageNet),emphysema,0.9686,0.9522,0.9831,0.9919,0.9886,0.9948
+ResNet50 (ImageNet),normal,0.9664,0.9522,0.9799,0.9922,0.9889,0.9952
+ResNet50 (ImageNet),pneumonia-bacterial,0.813,0.781,0.8429,0.9853,0.981,0.9893
+ResNet50 (ImageNet),pneumonia-viral,0.9052,0.8804,0.9268,0.96,0.9532,0.9667
+ResNet50 (ImageNet),tuberculosis,0.9921,0.9847,0.9984,0.9993,0.9983,1.0
+resnet50_scratch,covid-19,0.8998,0.874,0.9233,0.9947,0.992,0.997
+resnet50_scratch,emphysema,0.9804,0.9679,0.9922,0.9806,0.9758,0.9854
+resnet50_scratch,normal,0.9648,0.9505,0.9777,0.9868,0.9828,0.9906
+resnet50_scratch,pneumonia-bacterial,0.8147,0.7836,0.8441,0.956,0.9486,0.9632
+resnet50_scratch,pneumonia-viral,0.7454,0.7098,0.7782,0.96,0.9528,0.9667
+resnet50_scratch,tuberculosis,0.9795,0.9676,0.989,0.999,0.9976,1.0
+MobileViT-XS,covid-19,0.9549,0.9386,0.9712,0.992,0.9885,0.995
+MobileViT-XS,emphysema,0.9627,0.9457,0.9791,0.9929,0.9897,0.9958
+MobileViT-XS,normal,0.9618,0.9474,0.9752,0.9932,0.99,0.9959
+MobileViT-XS,pneumonia-bacterial,0.8765,0.8487,0.9035,0.9777,0.9723,0.9829
+MobileViT-XS,pneumonia-viral,0.8819,0.8564,0.9092,0.971,0.9651,0.9771
+MobileViT-XS,tuberculosis,0.9921,0.9844,0.9984,0.9997,0.999,1.0
+SimCLR + ResNet50,covid-19,0.9549,0.9373,0.9705,0.994,0.9912,0.9966
+SimCLR + ResNet50,emphysema,0.9765,0.9627,0.9885,0.9919,0.9885,0.9948
+SimCLR + ResNet50,normal,0.9725,0.9584,0.9846,0.9959,0.9935,0.998
+SimCLR + ResNet50,pneumonia-bacterial,0.8932,0.8656,0.9161,0.9847,0.9804,0.9887
+SimCLR + ResNet50,pneumonia-viral,0.9101,0.8865,0.9309,0.975,0.9688,0.9804
+SimCLR + ResNet50,tuberculosis,0.9953,0.9893,1.0,0.9993,0.9983,1.0
+MAE + ViT-S/16,covid-19,0.8013,0.77,0.8344,0.972,0.9665,0.9777
+MAE + ViT-S/16,emphysema,0.9137,0.8885,0.9373,0.9637,0.9569,0.9703
+MAE + ViT-S/16,normal,0.9327,0.9125,0.9523,0.9711,0.9649,0.9768
+MAE + ViT-S/16,pneumonia-bacterial,0.813,0.7825,0.8418,0.9126,0.9025,0.9224
+MAE + ViT-S/16,pneumonia-viral,0.5191,0.4779,0.5571,0.9636,0.9569,0.9702
+MAE + ViT-S/16,tuberculosis,0.9244,0.9048,0.9444,0.9987,0.9973,0.9997
+EfficientNet-B0,covid-19,0.9783,0.9661,0.9887,0.9913,0.988,0.9947
+EfficientNet-B0,emphysema,0.9627,0.9459,0.9792,0.9964,0.9942,0.9984
+EfficientNet-B0,normal,0.9786,0.9671,0.989,0.9935,0.9906,0.996
+EfficientNet-B0,pneumonia-bacterial,0.9115,0.8862,0.9337,0.9797,0.975,0.9846
+EfficientNet-B0,pneumonia-viral,0.8835,0.86,0.9086,0.9823,0.9775,0.9873
+EfficientNet-B0,tuberculosis,0.9984,0.9951,1.0,1.0,1.0,1.0

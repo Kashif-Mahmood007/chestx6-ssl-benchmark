@@ -1,0 +1,10 @@
+scenario,w_acc,w_rob,is_base,rank1,rank2,rank3,ResNet50_Scratch,ResNet50_ImageNet,EfficientNet-B0,MobileViT-XS,SimCLR__ResNet50,MAE__ViT-S/16
+A_High,0.6,0.4,False,ResNet50 (Scratch),SimCLR + ResNet50,ResNet50 (ImageNet),92.63,89.33,81.34,86.91,91.96,89.07
+A_High,0.7,0.3,True,SimCLR + ResNet50,ResNet50 (Scratch),ResNet50 (ImageNet),91.92,90.75,84.7,88.71,92.77,87.63
+A_High,0.8,0.2,False,SimCLR + ResNet50,ResNet50 (ImageNet),ResNet50 (Scratch),91.21,92.17,88.07,90.51,93.58,86.18
+B_Mid,0.4,0.6,False,ResNet50 (Scratch),SimCLR + ResNet50,MAE + ViT-S/16,88.96,83.62,71.57,80.08,86.94,85.67
+B_Mid,0.5,0.5,True,ResNet50 (Scratch),SimCLR + ResNet50,ResNet50 (ImageNet),86.99,84.31,74.17,81.06,86.9,82.66
+B_Mid,0.6,0.4,False,SimCLR + ResNet50,ResNet50 (Scratch),ResNet50 (ImageNet),85.01,85.01,76.78,82.05,86.86,79.65
+C_Low,0.2,0.8,False,ResNet50 (Scratch),MAE + ViT-S/16,SimCLR + ResNet50,92.84,81.62,65.52,77.6,86.54,90.32
+C_Low,0.3,0.7,True,ResNet50 (Scratch),MAE + ViT-S/16,SimCLR + ResNet50,90.82,82.02,67.7,78.34,86.26,86.61
+C_Low,0.4,0.6,False,ResNet50 (Scratch),SimCLR + ResNet50,MAE + ViT-S/16,88.8,82.42,69.89,79.08,85.98,82.91

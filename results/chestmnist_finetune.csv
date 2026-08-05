@@ -1,0 +1,6 @@
+Model,Method,AUC-ROC,F1 (Binary),Accuracy,Sensitivity,Specificity,Time (min)
+ResNet50 (ImageNet),Fine-Tune,0.7469,0.5995,0.6816,0.5089,0.8338,71.8
+EfficientNet-B0,Fine-Tune,0.7285,0.6041,0.6736,0.5319,0.7983,63.0
+MobileViT-XS,Fine-Tune,0.7269,0.5873,0.6678,0.5047,0.8115,73.8
+SimCLR + ResNet50,Fine-Tune,0.7454,0.5738,0.6701,0.4742,0.8427,86.9
+MAE + ViT-S/16,Fine-Tune,0.7075,0.6256,0.66,0.6068,0.7068,89.3
