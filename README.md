@@ -126,7 +126,7 @@ Exact package versions are provided in `requirements.txt`.
 If you use this repository in your research, please cite:
 
 ```bibtex
-@unpublished{mahmood2026drs,
+@article{[citekey]2026,
   title  = {A Deployment Risk Score Framework for Self-Supervised Chest X-Ray Classification: Calibrated Multi-Objective Evaluation Under Annotation Scarcity and Scanner Heterogeneity},
   author = {Kashif Mahmood and Romana Aziz and Muhammad Ramzan and Mahwish Ilyas and Ala Saleh Alluhaidan},
   note   = {Manuscript under revision},
