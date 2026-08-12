@@ -67,7 +67,7 @@ chestx6-ssl-benchmark/
 Clone the repository and install the required packages.
 
 ```bash
-git clone https://github.com/<username>/ChestX6-SSL-Benchmark.git
+git clone https://github.com/Kashif-Mahmood007/ChestX6-SSL-Benchmark.git
 cd ChestX6-SSL-Benchmark
 pip install -r requirements.txt
 ```
@@ -80,7 +80,7 @@ This project uses two publicly available datasets.
 
 ### ChestX6
 
-Download the ChestX6 dataset from Kaggle using the instructions provided in:
+Download the ChestX6 dataset from Zenodo using the instructions provided in:
 
 ```
 data/README.md

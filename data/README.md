@@ -4,7 +4,7 @@ This repository does **not** include the datasets used in the experiments. Both 
 
 ## ChestX6
 
-The experiments in this study use the **ChestX6: Multi-Class X-ray Dataset**, originally containing **18,036** chest X-ray images across six classes:
+The experiments in this study use the **ChestX6: A Compiled Six-Class Chest X-Ray Classification Benchmark**, originally containing **18,036** chest X-ray images across six classes:
 
 * COVID-19
 * Emphysema
@@ -16,7 +16,7 @@ The experiments in this study use the **ChestX6: Multi-Class X-ray Dataset**, or
 During dataset preparation, **48 duplicate images were identified and removed**, resulting in a final dataset of **17,988** unique images used in all experiments.
 
 **Original dataset:**
-https://www.kaggle.com/datasets/mohamedasak/chest-x-ray-6-classes-dataset
+https://doi.org/10.5281/zenodo.21880301
 
 ## Fixed Splits and Checksums
 
