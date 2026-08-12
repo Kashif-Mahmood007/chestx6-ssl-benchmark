@@ -15,7 +15,7 @@ The experiments in this study use the **ChestX6: A Compiled Six-Class Chest X-Ra
 
 During dataset preparation, **48 duplicate images were identified and removed**, resulting in a final dataset of **17,988** unique images used in all experiments.
 
-**Original dataset:**
+**Dataset:**
 https://doi.org/10.5281/zenodo.21880301
 
 ## Fixed Splits and Checksums
