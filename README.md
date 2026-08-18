@@ -24,6 +24,7 @@ The study compares contrastive self-supervised learning (**SimCLR**) and reconst
 chestx6-ssl-benchmark/
 │
 ├── notebooks/          # End-to-end training and analysis notebooks
+│   ├── NB0 - Dataset Provenance Verification
 │   ├── NB1 - Dataset Audit & Official Split
 │   ├── NB2 - Supervised training
 │   ├── NB3 - SSL Pretraining & Fine-tuning
@@ -33,14 +34,12 @@ chestx6-ssl-benchmark/
 │
 ├── figures/            # All manuscript figures (300 DPI)
 ├── results/            # CSV/JSON result files
-├── splits/             # Fixed train/validation/test split indices
-├── scripts/            # Standalone reproduction scripts
 │
 ├── checkpoints/
 │   └── README.md       # Download links for pretrained models
 │
 ├── data/
-│   └── README.md       # Dataset download instructions
+│   └── README.md       # Dataset sources and download instructions
 │
 ├── requirements.txt
 ├── LICENSE
@@ -80,11 +79,12 @@ This project uses two publicly available datasets.
 
 ### ChestX6
 
-Download the ChestX6 dataset from Zenodo using the instructions provided in:
-
-```
-data/README.md
-```
+ChestX6 is a compiled six-class chest X-ray benchmark. It is not hosted in
+this repository or under a dedicated dataset DOI — we independently
+verified, at the image level, that it draws from two publicly available
+sources, and link directly to both so that citation and reuse credit goes
+to the original creators. Full provenance, per-class counts, and download
+instructions are in `data/README.md`.
 
 ### ChestMNIST
 
@@ -95,8 +95,8 @@ ChestMNIST is automatically downloaded through the `medmnist` package during eva
 # Reproducing the Results
 
 1. Install the required dependencies.
-2. Download the ChestX6 dataset.
-3. Use the fixed train/validation/test splits provided in the `splits/` directory.
+2. Download the source images listed in `data/README.md` and assemble ChestX6 following the class mapping given there.
+3. Download the fixed train/validation/test splits and MD5 checksums from the Kaggle repository linked in `data/README.md`.
 4. Download pretrained checkpoints from the location specified in `checkpoints/README.md`, or train the models from scratch using the notebooks.
 5. Execute the notebooks in order to reproduce the complete experimental pipeline and manuscript figures.
 
@@ -133,6 +133,12 @@ If you use this repository in your research, please cite:
   year   = {2026}
 }
 ```
+
+### Dataset Citation
+
+If you use the ChestX6 class compilation (not just this code), please also
+cite the two source datasets it independently verifies to. Full citations
+are in `data/README.md`.
 
 ---
 
