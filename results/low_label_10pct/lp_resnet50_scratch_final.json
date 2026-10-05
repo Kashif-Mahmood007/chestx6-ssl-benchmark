@@ -1,0 +1,8 @@
+{
+  "model_name": "resnet50_scratch",
+  "subset": "10pct",
+  "n_train_images": 7846,
+  "test_auc": 0.6789464934937246,
+  "test_sensitivity": 0.5600190385525369,
+  "best_val_f1": 0.6352935790305952
+}

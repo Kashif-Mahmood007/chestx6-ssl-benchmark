@@ -10,11 +10,11 @@ MAE + ViT-S/16 with 10% labels achieves 63.3% of full-supervision performance us
 SSL pretraining (MAE + ViT-S/16) at 100% labels: Macro F1 = 0.833
 
 ── Calibration ──────────────────────────────────────
-ECE: MAE + ViT-S/16 = 0.0268, ResNet50 (ImageNet) = 0.0270
+ECE: MAE + ViT-S/16 = 0.0268, ResNet50 (ImageNet) = 0.0262
 
 ── Representations ──────────────────────────────────
-UMAP silhouette score: SimCLR + ResNet50 = 0.642 vs ResNet50 (Scratch) = 0.420
-Contrastive SSL (SimCLR) shows better feature cluster separation (silhouette 0.642 vs 0.420 for scratch).
+UMAP silhouette score: SimCLR + ResNet50 = 0.644 vs ResNet50 (Scratch) = 0.441
+Contrastive SSL (SimCLR) shows better feature cluster separation (silhouette 0.644 vs 0.441 for scratch).
 
 ── Statistical tests ────────────────────────────────
 See results/statistical_tests.csv for full Wilcoxon results.

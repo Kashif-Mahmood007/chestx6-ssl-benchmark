@@ -2,23 +2,23 @@
   "resnet50_pretrained": {
     "label": "ResNet50 (ImageNet)",
     "T_optimal": 1.5013,
-    "ECE_before": 0.027,
+    "ECE_before": 0.0262,
     "ECE_after": 0.0165,
-    "ECE_reduction_%": 38.7
+    "ECE_reduction_%": 37.0
   },
   "resnet50_scratch": {
     "label": "ResNet50 (Scratch)",
     "T_optimal": 1.3951,
-    "ECE_before": 0.024,
+    "ECE_before": 0.0227,
     "ECE_after": 0.0117,
-    "ECE_reduction_%": 51.0
+    "ECE_reduction_%": 48.4
   },
   "efficientnet_b0": {
     "label": "EfficientNet-B0",
     "T_optimal": 1.6999,
-    "ECE_before": 0.0259,
+    "ECE_before": 0.0237,
     "ECE_after": 0.0157,
-    "ECE_reduction_%": 39.3
+    "ECE_reduction_%": 33.6
   },
   "mobilevit_xs": {
     "label": "MobileViT-XS",
@@ -30,15 +30,22 @@
   "simclr_resnet50": {
     "label": "SimCLR + ResNet50",
     "T_optimal": 1.7709,
-    "ECE_before": 0.028,
+    "ECE_before": 0.0276,
     "ECE_after": 0.0205,
-    "ECE_reduction_%": 26.7
+    "ECE_reduction_%": 25.7
   },
   "mae_vits16": {
     "label": "MAE + ViT-S/16",
     "T_optimal": 1.2901,
-    "ECE_before": 0.0267,
+    "ECE_before": 0.0268,
     "ECE_after": 0.0199,
-    "ECE_reduction_%": 25.4
+    "ECE_reduction_%": 25.5
+  },
+  "vit_s16_scratch": {
+    "label": "ViT-S/16 (Scratch)",
+    "T_optimal": 1.2624,
+    "ECE_before": 0.0241,
+    "ECE_after": 0.0253,
+    "ECE_reduction_%": -5.0
   }
 }

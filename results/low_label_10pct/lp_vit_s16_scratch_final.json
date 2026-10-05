@@ -1,0 +1,8 @@
+{
+  "model_name": "vit_s16_scratch",
+  "subset": "10pct",
+  "n_train_images": 7846,
+  "test_auc": 0.6503651410286245,
+  "test_sensitivity": 0.5663017610656198,
+  "best_val_f1": 0.611937258597172
+}
