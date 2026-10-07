@@ -56,4 +56,5 @@ After downloading, preserve the original directory structure so that the noteboo
 
 * The exact Hugging Face revision used for the paper is: 1764b2409e06a91e81eda0f8bfe0c8ae4e199a38
 * Hugging Face DOI: https://doi.org/10.57967/hf/10799
-* The code and results used in the paper are archived at Zenodo as GitHub release v1.0.0-scirep: https://doi.org/10.5281/zenodo.23200410
+* The code and results used in the paper are archived at Zenodo as GitHub release v1.0.0-scirep: https://doi.org/10.5281/zenodo.23202334
+
