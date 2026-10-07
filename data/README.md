@@ -27,15 +27,18 @@ independent contribution:
 | Curated Dataset for COVID-19 Posterior-Anterior Chest Radiography Images (X-Rays), V4 (Sait et al., 2020) | https://doi.org/10.17632/9xkhgts2s6.4 |
 | COVID-19 Radiography Database (Chowdhury et al., 2020, *IEEE Access*) | https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database |
 
-**Per-class provenance, verification methodology, and confidence tiers**
-are documented in full in `notebooks/NB0 - Dataset Provenance
-Verification.ipynb` and in the manuscript (Table: per-class provenance).
+### Per-class provenance, verification methodology, and confidence tiers
+Per-class provenance, verification methodology, and confidence tiers are documented in full in notebooks/NB0 - Dataset Provenance Verification.ipynb and in the manuscript (Table: per-class provenance).
 
-Prior to deduplication, 18,036 images were originally collected across
-these sources (Covid-19: 3,017; Normal: 3,271; Pneumonia-Bacterial: 3,000;
-Pneumonia-Viral: 3,013; Emphysema: 2,550; Tuberculosis: 3,185). MD5-based
-deduplication removed 48 duplicate images, yielding the 17,988-image
-experimental set used throughout this study.
+Prior to deduplication, 18,036 images were originally collected across these sources:
+* Covid-19: 3,017
+* Normal: 3,271
+* Pneumonia-Bacterial: 3,000
+* Pneumonia-Viral: 3,013
+* Emphysema: 2,550
+* Tuberculosis: 3,185
+
+MD5-based deduplication removed 48 duplicate images, yielding the 17,988-image experimental set used throughout this study.
 
 ## Fixed Splits and Checksums
 
@@ -47,10 +50,18 @@ drifting out of sync. The Kaggle repository contains:
 * Label-budget subset indices
 * MD5 checksums for dataset verification
 
-**Source:**
+## Kaggle reproducibility package
+
+### ChestX6: SSL Benchmark Splits & Checksums
+**Version:** 3
+**DOI:** https://doi.org/10.34740/KAGGLE/DSV/20409572
+**Dataset page:**
 https://www.kaggle.com/datasets/kashif03371733/chestx6-ssl-benchmark-splits-and-checksums
 
+The index and checksum files are released under the Creative Commons Attribution 4.0 International (CC BY 4.0) License. This licence covers only those files and not any image data.
+
 ---
+
 
 ## ChestMNIST (Cross-Dataset Evaluation)
 
@@ -65,8 +76,10 @@ https://medmnist.com
 
 ## Citing the Data
 
-If you use ChestX6, please cite the two verified source datasets:
+If you use ChestX6, please cite the original source datasets listed above and the ChestX6 reproducibility package.
 
+
+### Minh Nhat dataset
 ```bibtex
 @misc{minhnhat2023chestx6base,
   author       = {{Minh Nhat}},
@@ -76,6 +89,10 @@ If you use ChestX6, please cite the two verified source datasets:
   url          = {https://www.kaggle.com/datasets/minhnhat232/dataset-covid-bacterial-viral-normal-emphysema}
 }
 
+```
+
+### Tuberculosis Chest X-ray Database
+``` bibtex
 @article{rahman2020tb,
   author  = {Rahman, Tawsifur and Khandakar, Amith and Kadir, Muhammad Abdul and Islam, Khandaker Reajul and Islam, Khandaker Farhat and Mazhar, Rashid and Hamid, Tahir and Islam, Mohammad Tariqul and Kashem, Saad and Mahbub, Zaid Bin and Ayari, Mohamed Arselene and Chowdhury, Muhammad E. H.},
   title   = {Reliable Tuberculosis Detection Using Chest X-Ray With Deep Learning, Segmentation and Visualization},
@@ -85,4 +102,18 @@ If you use ChestX6, please cite the two verified source datasets:
   year    = {2020},
   doi     = {10.1109/ACCESS.2020.3031384}
 }
+```
+
+
+### ChestX6 reproducibility package
+``` bibtex
+@misc{kashif_mahmood_romana_aziz_muhammad_ramzan_mahwish_ilyas_ala_saleh_alluhaidan_2026,
+  title     = {ChestX6: SSL Benchmark Splits & Checksums},
+  publisher = {Kaggle},
+  year      = {2026},
+  doi       = {10.34740/KAGGLE/DSV/20409572},
+  url       = {https://www.kaggle.com/dsv/20409572},
+  author    = {Kashif Mahmood and Romana Aziz and Muhammad Ramzan and Mahwish Ilyas and Ala Saleh Alluhaidan}
+}
+
 ```
