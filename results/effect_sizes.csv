@@ -1,0 +1,11 @@
+comparison,mean_diff,d_sample_sd_n_minus_1,d_population_sd_n,d_paired_dz,p_wilcoxon_exact,p_ranksum_exact
+"SimCLR vs ResNet50 (ImageNet), 100% labels",0.0021,0.203,0.248,0.156,1.0,0.7
+"SimCLR vs ResNet50 (ImageNet), 20% labels",-0.011,-1.198,-1.467,-0.868,0.5,0.4
+"SimCLR vs ResNet50 (ImageNet), 10% labels",-0.0049,-0.554,-0.678,-0.527,0.75,0.7
+"SimCLR vs MAE, 10% labels",0.2364,6.22,7.618,4.34,0.25,0.1
+"SimCLR vs MAE, 20% labels",0.1912,9.796,11.998,7.018,0.25,0.1
+"SimCLR vs MAE, 100% labels",0.1183,8.893,10.892,6.374,0.25,0.1
+"MAE vs ViT-S/16 (Scratch), 10% labels",-0.0653,-1.728,-2.117,-1.227,0.25,0.1
+"MAE vs ViT-S/16 (Scratch), 20% labels",-0.0454,-2.086,-2.555,-1.427,0.25,0.1
+"MAE vs ViT-S/16 (Scratch), 100% labels",0.019,1.386,1.698,1.39,0.25,0.4
+"Train-only SimCLR vs ResNet50 (ImageNet), 100% labels",-0.0079,-0.724,-0.887,-0.941,0.5,0.7
