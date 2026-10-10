@@ -108,7 +108,7 @@ def main():
             pts[m], sds[m], cis[m] = pt, sd, (pt - 4.303 * sem, pt + 4.303 * sem)
         top = np.vstack([draws[m] for m in models]).argmax(0)
         for i, m in enumerate(models):
-            rows.append(dict(scenario=sc, model=m, drs=round(pts[m], 2), sd_single_run=round(sds[m], 2),
+            rows.append(dict(scenario=sc, model=m, drs=round(pts[m], 4), sd_single_run=round(sds[m], 2),
                              ci95_lo=round(cis[m][0], 1), ci95_hi=round(cis[m][1], 1),
                              p_rank1=round(float((top == i).mean()), 3)))
         res[sc] = rows[-len(models):]
@@ -134,7 +134,7 @@ def main():
           r"P(rank 1): share of 20{,}000 Monte-Carlo draws of the true-mean DRS (heavy-tailed $t_2$, scaled by the "
           r"standard errors) in which the model scores highest. Only training-seed variation is represented; "
           r"test-set sampling, the labelled-subset draw, the weights and pretraining-run variability (the SimCLR and "
-          r"MAE encoders were pretrained once) are not. With three seeds these quantities are themselves uncertain.}",
+          r"MAE encoders were pretrained once) are not. The inputs are rounded means and SDs; recomputing from the unrounded per-run values changes the SDs and interval limits by at most 0.1 and the probabilities by at most 0.01. With three seeds these quantities are themselves uncertain.}",
           r"\end{table}"]
     open(os.path.join(a.out, "drs_uncertainty.tex"), "w").write("\n".join(L) + "\n")
 

@@ -95,7 +95,7 @@ def main():
                     r"expressed as the percentage of the clean performance that lies above chance, $(F1-1/6)/(F1_{\text{clean}}-1/6)\times100$, "
                     r"with $1/6$ the macro-F1 of random guessing among six classes of similar size (an approximation). Noise-L/M: Gaussian noise "
                     r"$\sigma$\,=\,0.05/0.10; Bright+/$-$: brightness $\times$1.3/0.7; Blur-M/S: Gaussian blur "
-                    r"$\sigma$\,=\,1.0/2.0; Contrast: factor 0.7; JPEG: quantisation approximating quality 50. The "
+                    r"$\sigma$\,=\,1.0/2.0; Contrast: factor 0.7; JPEG: quantisation to steps of 16 grey levels (an approximation of compression, not a codec pass). The "
                     r"relative drops in the main text divide by the clean F1, which favours models with a low clean F1; "
                     r"the absolute values are given here so that the two views can be compared.}", r"\end{table}"]) + "\n"
     open(os.path.join(a.out, "supp_S2_absolute_f1.tex"), "w").write(S2)
