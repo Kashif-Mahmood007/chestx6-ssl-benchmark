@@ -30,7 +30,7 @@ The links below point to frozen snapshots, not to the latest state of each repos
 
 | Resource | Archived version used in the paper |
 | -------- | ---------------------------------- |
-| Code, results and split files (this repository) | Release `v1.1.0-scirep`, archived at Zenodo (version DOI: see the badge above and the Zenodo record of this release) |
+| Code, results and split files (this repository) | Release `v1.1.0-scirep`, archived at Zenodo: https://doi.org/10.5281/zenodo.23288310 |
 | Model checkpoints (Hugging Face) | https://huggingface.co/Kashif-Mahmood007/chestx6-ssl-checkpoints, revision `1764b2409e06a91e81eda0f8bfe0c8ae4e199a38` (DOI: https://doi.org/10.57967/hf/10799) |
 | Split indices and MD5 checksums (Kaggle) | Version 4, DOI: https://doi.org/10.34740/KAGGLE/DSV/20558883 |
 
@@ -185,8 +185,9 @@ If you use this repository in your research, please cite the paper and the archi
 @software{mahmood2026chestx6code,
   title   = {ChestX6-SSL-Benchmark: code, split files and results for the manuscript above},
   author  = {Kashif Mahmood and Romana Aziz and Muhammad Ramzan and Mahwish Ilyas and Ala Saleh Alluhaidan},
-  version = {v1.1.0-scirep},
+    version = {v1.1.0-scirep},
   year    = {2026},
+  doi     = {10.5281/zenodo.23288310},
   url     = {https://github.com/Kashif-Mahmood007/ChestX6-SSL-Benchmark}
 }
 ```
