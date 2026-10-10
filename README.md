@@ -185,7 +185,7 @@ If you use this repository in your research, please cite the paper and the archi
 @software{mahmood2026chestx6code,
   title   = {ChestX6-SSL-Benchmark: code, split files and results for the manuscript above},
   author  = {Kashif Mahmood and Romana Aziz and Muhammad Ramzan and Mahwish Ilyas and Ala Saleh Alluhaidan},
-  version = {v1.1.0-scirep},
+    version = {v1.1.0-scirep},
   year    = {2026},
   doi     = {10.5281/zenodo.23288310},
   url     = {https://github.com/Kashif-Mahmood007/ChestX6-SSL-Benchmark}
