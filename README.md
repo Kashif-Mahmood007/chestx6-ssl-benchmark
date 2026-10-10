@@ -1,7 +1,7 @@
 # ChestX6-SSL-Benchmark
 
-[![DOI](https://zenodo.org/badge/1324454217.svg)](https://doi.org/10.5281/zenodo.23202334
-)
+[![DOI](https://zenodo.org/badge/1324454217.svg)](https://zenodo.org/badge/latestdoi/1324454217)
+
 Code accompanying the manuscript:
 
 **"A Deployment Risk Score Framework for Self-Supervised Chest X-Ray Classification: Calibrated Multi-Objective Evaluation Under Annotation Scarcity and Distribution Shift"**
@@ -10,7 +10,7 @@ Code accompanying the manuscript:
 
 This repository contains the code, experimental configurations, and supplementary resources associated with the above manuscript. The repository has been made publicly available to support reproducibility and the peer-review process.
 
-The study compares contrastive self-supervised learning (**SimCLR**) and reconstruction-based self-supervised learning (**MAE**) against five supervised baselines (including an architecture-matched ViT-S/16 trained from scratch) using the **ChestX6** dataset. Evaluation includes:
+The study compares two complete self-supervised pipelines, a contrastive one (**SimCLR** + ResNet50) and a masked-autoencoder-style one (**MAE** + ViT-S/16; see the [note on what its pretraining trained](#important-note-on-the-mae--vit-s16-model)), against five supervised baselines (including an architecture-matched ViT-S/16 trained from scratch) using the **ChestX6** dataset. The two pipelines differ in backbone, objective, epochs and number of updates and are not compute-matched, so the comparison is between pipelines, not a controlled test of the pretraining objective. Evaluation includes:
 
 * Label efficiency (10%, 20% and 100% annotation budgets)
 * Robustness to eight synthetic image perturbations
@@ -30,12 +30,11 @@ The links below point to frozen snapshots, not to the latest state of each repos
 
 | Resource | Archived version used in the paper |
 | -------- | ---------------------------------- |
-| Code, results and split files (this repository) | Release `v1.0.0-scirep`, archived at Zenodo: https://doi.org/10.5281/zenodo.23202334
- |
+| Code, results and split files (this repository) | Release `v1.0.0-scirep`, archived at Zenodo: https://doi.org/10.5281/zenodo.23202334 |
 | Model checkpoints (Hugging Face) | https://huggingface.co/Kashif-Mahmood007/chestx6-ssl-checkpoints, revision `1764b2409e06a91e81eda0f8bfe0c8ae4e199a38` (DOI: https://doi.org/10.57967/hf/10799) |
 | Split indices and MD5 checksums (Kaggle) | Version 3, DOI: https://doi.org/10.34740/KAGGLE/DSV/20409572 |
 
-The same split and checksum files are also stored in `data/splits/`, so they are covered by the Zenodo archive of this repository.
+The split-index files, the MD5 checksums, the group-respecting Tuberculosis split and the Tuberculosis manifest are stored in `data/splits/` of this repository, so they are part of the Zenodo archive of the code. The Kaggle dataset repeats the original split and checksum files. The `scripts/` folder, which rebuilds the supplementary tables, is part of the same archive.
 
 ---
 
@@ -55,15 +54,25 @@ chestx6-ssl-benchmark/
 │   └── NB6 - Cross-dataset transfer (ChestMNIST)
 │
 ├── figures/            # All manuscript figures (300 DPI)
-├── results/            # CSV/JSON result files (including per-seed results)
+├── results/            # CSV/JSON result files (one JSON per model x budget x seed), plus
+│                       # per_seed_results.csv and effect_sizes.csv (data of Supplementary Tables S1 and S3)
+│
+├── scripts/            # Post-hoc analysis scripts for the supplementary tables
+│   ├── make_per_seed_results.py          # per-seed table, SDs, effect sizes, exact p-values (Tables S1, S3)
+│   ├── make_supp_tables_S2_S4.py         # absolute robustness F1 and AUC intervals (Tables S2, S4)
+│   ├── make_drs_uncertainty.py           # seed-level uncertainty of the DRS (Table S5)
+│   ├── build_supplementary.py            # runs the three table scripts and compiles Tables S1-S5 into one PDF
+│   ├── count_tb_acquisitions.py          # counts original Tuberculosis acquisitions per partition (Section 5.3, Limitation 2)
+│   ├── check_mae_gradients.py            # shows which ViT parameters receive a gradient in MAE pretraining
+│   └── NB3_MAE_pretrain_corrected_cell.py   # corrected MAE pretraining (NOT used for the paper's results)
 │
 ├── checkpoints/
 │   └── README.md       # Download links for pretrained models (pinned revision)
 │
 ├── data/
 │   ├── README.md       # Dataset sources, licences and download instructions
-│   └── splits/         # Fixed split index files (JSON) and MD5 checksums
-│                       # (identical to the Kaggle files listed above)
+│   └── splits/         # Split index files (JSON), MD5 checksums, group-respecting Tuberculosis split
+│                       # and Tuberculosis manifest; see data/splits/README.md
 │
 ├── requirements.txt
 ├── LICENSE
@@ -82,9 +91,17 @@ chestx6-ssl-benchmark/
 | MobileViT-XS        | Supervised ImageNet                          |      5.6 M |
 | ViT-S/16 (Scratch)  | None (architecture-matched control for MAE)  |     21.7 M |
 | SimCLR + ResNet50   | Contrastive SSL (ChestX6)                    |     25.6 M |
-| MAE + ViT-S/16      | Masked Autoencoder SSL (ChestX6)             |     22.1 M |
+| MAE + ViT-S/16      | MAE-style SSL (ChestX6); only the patch-embedding layer was pretrained (see note below) |     22.1 M |
 
-SimCLR and MAE were each pretrained once on ChestX6 images and then fine-tuned with three seeds (42, 123, 456). All seven models were trained under one fixed protocol; no hyperparameter search was performed. A second set of SimCLR and MAE encoders pretrained on the training partition only is used for the evaluation-independence sensitivity analysis.
+SimCLR and MAE were each pretrained once on ChestX6 images and then fine-tuned with three seeds (42, 123, 456). All seven models were trained under one fixed protocol; no hyperparameter search was performed. A second set of SimCLR and MAE encoders pretrained on the training partition only is used for the evaluation-independence sensitivity analysis (train-only variant of NB3 in `notebooks/`; per-run results in `results/`).
+
+### Important note on the "MAE + ViT-S/16" model
+
+In the pretraining code used for the paper (`notebooks/NB3`, Cell 4) the visible patch embeddings produced by `encoder.patch_embed` were passed directly to the decoder. The ViT's transformer blocks, class token, positional embedding and final norm were therefore never part of the pretraining forward pass and were not updated. The "MAE + ViT-S/16" checkpoints contain a **pretrained patch-embedding layer and randomly initialised transformer blocks**, exactly as in ViT-S/16 (Scratch). The MAE results in the paper therefore do **not** test masked-reconstruction pretraining of a full ViT encoder; they describe the pipeline as it was run.
+
+A corrected implementation that trains the full encoder is provided in `scripts/NB3_MAE_pretrain_corrected_cell.py`. **It was not used to produce any result in the paper.** `scripts/check_mae_gradients.py` shows the difference in a few seconds on a CPU (no data or GPU needed).
+
+For SimCLR, the NT-Xent loss was computed inside micro-batches of 64 images (126 negatives per anchor), not over the effective batch of 256 obtained by gradient accumulation.
 
 ---
 
@@ -126,9 +143,10 @@ ChestMNIST (28×28 release, derived from NIH ChestX-ray14) is automatically down
 
 1. Install the required dependencies.
 2. Download the source images listed in `data/README.md` and assemble ChestX6 following the class mapping given there.
-3. Use the fixed train/validation/test splits and MD5 checksums in `data/splits/` (or the archived Kaggle version listed above).
+3. Use the fixed train/validation/test splits and MD5 checksums in `data/splits/` (or the archived Kaggle version listed above). The index files are lists of row positions (0-based) in `md5_checksums.csv`. The group-respecting Tuberculosis split of the leakage sensitivity analysis is given by `train_indices_tbcorrected.json`, `val_indices_tbcorrected.json` and `test_indices_tbcorrected.json` (only the Tuberculosis images are reassigned), and `tb_manifest.csv` lists every Tuberculosis image with its original acquisition and its partition in both splits.
 4. Download the checkpoints at the pinned revision given in `checkpoints/README.md`, or train the models from scratch using the notebooks. SimCLR and MAE pretraining each ran once; only fine-tuning was repeated across seeds.
 5. Execute the notebooks in order to reproduce the complete experimental pipeline and manuscript figures.
+6. To rebuild the supplementary tables from the per-run JSON files in `results/`, run `python scripts/make_per_seed_results.py results --out out/` (Tables S1 and S3, per-seed CSV, summary with sample and population standard deviations), `python scripts/make_supp_tables_S2_S4.py ...` (Tables S2 and S4) and `python scripts/make_drs_uncertainty.py --out out/` (Table S5); each script's docstring gives the exact command. To rebuild all five tables and the two data files in one step, run `python scripts/build_supplementary.py --results results --scripts scripts --out supplementary_upload` (needs `pdflatex`). `python scripts/count_tb_acquisitions.py data/splits/tb_manifest.csv` reproduces the acquisition counts of Section 5.3 (Limitation 2) and checks them against the totals stated there.
 
 Exact numerical reproducibility across different hardware or library versions is not guaranteed: CUDA-level bit-exact determinism was not enforced beyond the random seeds used for data splitting and initialization. Results are expected to fall within the seed-to-seed variation reported in the paper.
 
@@ -138,7 +156,7 @@ Exact numerical reproducibility across different hardware or library versions is
 
 Experiments were conducted using:
 
-* Python 3.13 
+* Python 3.13
 * CUDA 12.8
 * torch 2.11.0+cu128, torchvision 0.26.0+cu128
 * timm 1.0.29
@@ -169,8 +187,7 @@ If you use this repository in your research, please cite the paper and the archi
   author  = {Kashif Mahmood and Romana Aziz and Muhammad Ramzan and Mahwish Ilyas and Ala Saleh Alluhaidan},
   version = {v1.0.0-scirep},
   year    = {2026},
-  doi     = {10.5281/zenodo.23202334
-},
+  doi     = {10.5281/zenodo.23202334},
   url     = {https://github.com/Kashif-Mahmood007/ChestX6-SSL-Benchmark}
 }
 ```
@@ -183,7 +200,7 @@ If you use the ChestX6 class compilation (not just this code), please also cite 
 
 # License
 
-The **code** in this repository is released under the **MIT License** (see the `LICENSE` file). The split-index and checksum files and the model checkpoints contain **no image data**.
+The **code** in this repository is released under the **MIT License** (see the `LICENSE` file). The split-index, checksum and manifest files in `data/splits/` are released under **CC BY 4.0**. These files and the model checkpoints contain **no image data**.
 
 **Intended use.** This repository supports a retrospective research comparison on public datasets. It is **not a medical device**, has not been validated for clinical use, and must not be used to inform diagnosis or treatment. The Deployment Risk Score is an exploratory research tool.
 
