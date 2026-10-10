@@ -42,23 +42,29 @@ MD5-based deduplication removed 48 duplicate images, yielding the 17,988-image e
 
 ## Fixed Splits and Checksums
 
-This repository does not include split files directly -- they are
-maintained on Kaggle as the single source of truth, to avoid two copies
-drifting out of sync. The Kaggle repository contains:
+The split files are stored in this repository in [`splits/`](splits/); the
+file `splits/README.md` describes every file. The same eleven files are
+archived on Kaggle (Version 4, below). They contain:
 
-* Train/validation/test split indices
-* Label-budget subset indices
-* MD5 checksums for dataset verification
+* Train/validation/test split indices of the original stratified split
+  (70/10/20, seed 42), used for all main results
+* Label-budget subset indices (10% and 20%)
+* MD5 checksums, with the split of each image, for dataset verification
+* The group-respecting Tuberculosis split used in the leakage sensitivity
+  analysis, and `tb_manifest.csv`, which lists the 3,173 Tuberculosis images
+  with their original acquisition and their partition in both splits
 
 ## Kaggle reproducibility package
 
 ### ChestX6: SSL Benchmark Splits & Checksums
-**Version:** 3
-**DOI:** https://doi.org/10.34740/KAGGLE/DSV/20409572
+**Version:** 4 (the version cited by the paper)
+**DOI:** https://doi.org/10.34740/KAGGLE/DSV/20558883
 **Dataset page:**
 https://www.kaggle.com/datasets/kashif03371733/chestx6-ssl-benchmark-splits-and-checksums
 
-The index and checksum files are released under the Creative Commons Attribution 4.0 International (CC BY 4.0) License. This licence covers only those files and not any image data.
+The index, checksum and manifest files are released under the Creative Commons Attribution 4.0 International (CC BY 4.0) License. This licence covers only those files and not any image data.
+
+Version 3 should not be used: its `md5_checksums.csv` listed 18,036 rows (the 48 duplicate images had not been removed) and its split column disagreed with the JSON index files for 8,189 of the 17,988 images. The JSON index files of Version 3 were correct and are unchanged in Version 4.
 
 ---
 
@@ -71,6 +77,25 @@ The dataset is downloaded automatically through the `medmnist` Python package.
 
 **Source:**
 https://medmnist.com
+
+---
+
+## Licences and permitted use
+
+No source image is redistributed by this repository. Each image remains under the terms set by its provider, including the terms of any upstream source that the provider compiles. Obtain the images from the original providers and comply with their terms. The released checkpoints were trained on these data, and their use is subject to the same terms. The terms below are those published by each provider (checked in October 2026).
+
+| Source | Role | Terms as published by the provider |
+|---|---|---|
+| Minh Nhat Kaggle compilation (five classes, 82.1% of ChestX6) | training and testing | Kaggle licence "CC0: Public Domain", set by the compiler; its description states that it compiles images from Sait et al., NIH ChestX-ray14 and the COVID-QU dataset, whose own terms continue to apply |
+| Rahman et al. Tuberculosis Chest X-ray Database (all Tuberculosis images, including the augmented derivatives) | training and testing | Kaggle licence "Data files © Original Authors"; the database aggregates images from the NLM (Montgomery and Shenzhen) collections, the Belarus tuberculosis dataset, the NIAID TB Portal and the RSNA pneumonia detection challenge, whose terms continue to apply |
+| Sait et al., Curated Dataset V4 (Mendeley Data; residual 0.3%) | residual match | CC BY 4.0 (Mendeley Data record, DOI 10.17632/9xkhgts2s6.4); it collates 15 public datasets, whose terms also apply |
+| COVID-19 Radiography Database (Kaggle; residual 0.3%) | residual match | Kaggle licence "Data files © Original Authors"; the page states academic, non-commercial use |
+| NIH ChestX-ray14 (NIH Clinical Center) | origin of the external test set | terms as stated on the NIH download page (https://nihcc.app.box.com/v/ChestXray-NIHCC): users must link to the NIH download site, cite Wang et al. (CVPR 2017) and acknowledge the NIH Clinical Center |
+| MedMNIST v2 / ChestMNIST | external test set | collection CC BY 4.0 (the only exception is DermaMNIST), code Apache-2.0; "not intended for clinical use" |
+
+*Augmented Tuberculosis subset.* Of the 3,173 Tuberculosis images, 2,482 are augmented derivatives of the 700 original images of the Rahman et al. database (their parent-child lineage was recovered from the file names); the other 691 matched source originals directly. We make no claim about the licence of the derivatives beyond that of the database they derive from, and we redistribute none of them.
+
+*Our own releases.* The split-index, checksum and manifest files (`splits/` and Kaggle Version 4) are released under CC BY 4.0; the code, the per-run result files and the model checkpoints are released under the MIT licence. None of them contains image data.
 
 ---
 
@@ -111,8 +136,9 @@ If you use ChestX6, please cite the original source datasets listed above and th
   title     = {ChestX6: SSL Benchmark Splits & Checksums},
   publisher = {Kaggle},
   year      = {2026},
-  doi       = {10.34740/KAGGLE/DSV/20409572},
-  url       = {https://www.kaggle.com/dsv/20409572},
+  version   = {4},
+  doi       = {10.34740/KAGGLE/DSV/20558883},
+  url       = {https://www.kaggle.com/dsv/20558883},
   author    = {Kashif Mahmood and Romana Aziz and Muhammad Ramzan and Mahwish Ilyas and Ala Saleh Alluhaidan}
 }
 
